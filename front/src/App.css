@@ -54,6 +54,7 @@ body {
 .main-nav-item {
 	text-decoration: none;
 	margin-right: 0.5rem;
+	cursor: pointer;
 }
 
 .main-nav-item:hover {
@@ -71,7 +72,7 @@ body {
 }
 
 .hero {
-	background-image: url("../img/bank-tree.jpeg");
+	background-image: url("../public/img/bank-tree.jpeg");
 	background-position: 0 -50px;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -164,7 +165,10 @@ body {
 	background-color: #00bc77;
 	color: #fff;
 }
-
+.error-message {
+	margin: 10px;
+	color: #e30202;
+}
 .sign-in-content {
 	box-sizing: border-box;
 	background-color: white;
