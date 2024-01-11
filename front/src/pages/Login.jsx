@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [remember, setRemember] = useState(false);
 
 	const { loading, error } = useSelector((state) => state.user);
 
@@ -19,11 +20,20 @@ const Login = () => {
 			password,
 		};
 
-		dispatch(loginUser(userCredential)).then((result) => {
+		dispatch(loginUser(userCredential, remember)).then((result) => {
 			if (result.payload) {
+				if (remember) {
+					console.log("localStorage");
+					localStorage.setItem("user", JSON.stringify(result));
+				} else {
+					console.log("sessionStorage");
+					// sessionStorage.setItem("user", JSON.stringify(result));
+					localStorage.setItem("user", JSON.stringify(result));
+				}
 				setEmail("");
 				setPassword("");
-				navigate("/profil");
+				console.log("go to profile page");
+				navigate("/profile");
 			}
 		});
 	};
@@ -70,7 +80,12 @@ const Login = () => {
 							/>
 						</div>
 						<div className="input-remember">
-							<input type="checkbox" id="remember-me" />
+							<input
+								type="checkbox"
+								id="remember-me"
+								value={remember}
+								onChange={() => setRemember(!remember)}
+							/>
 							<label htmlFor="remember-me">Remember me</label>
 						</div>
 						{/* <!-- PLACEHOLDER DUE TO STATIC SITE --> */}

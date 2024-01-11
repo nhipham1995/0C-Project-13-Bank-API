@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
-import Profil from "./pages/Profil";
+import Profil from "./pages/Profile";
 
 function App() {
 	return (
@@ -26,7 +26,7 @@ function App() {
 						}
 					></Route>
 					<Route
-						path="/profil"
+						path="/profile"
 						element={
 							// <DataContextProvider>
 							<Profil />

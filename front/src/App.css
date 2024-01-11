@@ -19,8 +19,31 @@ body {
 
 .bg-dark {
 	background-color: #12002b;
+	padding-top: 30px;
 }
 
+.bg-light {
+	background-color: rgb(184, 184, 184);
+}
+
+.button-list {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+	width: 100.9%;
+}
+.cancel-button {
+	font-size: 0.95rem;
+	font-weight: bold;
+	margin: 0;
+
+	margin-top: 1rem;
+	border-color: #00bc77;
+	background-color: #00bc77;
+	color: #fff;
+	border-radius: 5px;
+	padding: 5px 20px;
+}
 .sr-only {
 	border: 0 !important;
 	clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
@@ -101,6 +124,15 @@ body {
 	font-size: 0.9rem;
 }
 
+.input-list {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+}
+.input-list .input-wrapper input {
+	color: gray;
+}
+
 @media (min-width: 920px) {
 	.hero {
 		height: 400px;
@@ -155,15 +187,16 @@ body {
 }
 
 .sign-in-button {
-	display: block;
-	width: 100%;
 	padding: 8px;
-	font-size: 1.1rem;
+	font-size: 0.95rem;
 	font-weight: bold;
+	margin: 0;
 	margin-top: 1rem;
 	border-color: #00bc77;
 	background-color: #00bc77;
 	color: #fff;
+	border-radius: 5px;
+	padding: 5px 20px;
 }
 .error-message {
 	margin: 10px;
