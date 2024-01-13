@@ -4,10 +4,7 @@ import axios from "axios";
 export const updateProfile = createAsyncThunk(
 	"profile/updateProfile",
 	async (infos) => {
-		// const userState = store?.getState();
-		// const token = userState?.user?.user?.body?.token;
 		const token = localStorage.getItem("token");
-		// console.log("edit profile: ", infos);
 
 		const request = await axios
 			.put("http://localhost:3001/api/v1/user/profile", infos, {
@@ -17,10 +14,7 @@ export const updateProfile = createAsyncThunk(
 			})
 			.then((response) => response.data)
 			.catch((err) => console.log("err", err));
-		// const response = await request.data;
-		// console.log(response);
-		// localStorage.setItem("user", JSON.stringify(response));
-		// return response;
+
 		return request;
 	}
 );
@@ -28,7 +22,6 @@ export const updateProfile = createAsyncThunk(
 export const userProfile = createAsyncThunk("profile/takeProfile", async () => {
 	const token = localStorage.getItem("token");
 
-	// try {
 	const config = {
 		headers: {
 			"Content-Type": "application/json",
@@ -42,17 +35,6 @@ export const userProfile = createAsyncThunk("profile/takeProfile", async () => {
 		.catch((err) => console.log("Error: ", err));
 
 	return request;
-	// dispatch({ type: USER_PROFILE_SUCCESS, payload: data });
-	// }
-	// catch (error) {
-	// dispatch({
-	// 	type: USER_PROFILE_FAIL,
-	// 	payload:
-	// 		error.response && error.response.data.message
-	// 			? error.response.data.message
-	// 			: error.message,
-	// });
-	// }
 });
 
 const profileSlice = createSlice({
@@ -74,19 +56,7 @@ const profileSlice = createSlice({
 				state.profile = action.payload;
 				state.error = null;
 			})
-			// .addCase(userProfile.rejected, (state, action) => {
-			// 	state.loading = false;
-			// 	state.profile = null;
-			// 	console.log(action.error.message);
-			// 	if (
-			// 		action.error.message ===
-			// 		"Request failed with status code 401"
-			// 	) {
-			// 		state.error = "Can not load profile";
-			// 	} else {
-			// 		state.error = action.error.message;
-			// 	}
-			// })
+
 			.addCase(updateProfile.pending, (state) => {
 				state.loading = true;
 				state.profile = null;

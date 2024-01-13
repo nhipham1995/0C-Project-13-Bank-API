@@ -4,9 +4,7 @@ const jwt = require("jsonwebtoken");
 
 module.exports.createUser = async (serviceData) => {
 	try {
-		console.log("service Data from create", serviceData);
 		const user = await User.findOne({ email: serviceData.email });
-		console.log("user found: ", user);
 		if (user) {
 			throw new Error("Email already exists");
 		}

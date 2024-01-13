@@ -37,6 +37,7 @@ const Profil = () => {
 
 	const handleLogoutEvent = async () => {
 		await localStorage.removeItem("user");
+		await sessionStorage.removeItem("user");
 		await localStorage.removeItem("token");
 		navigate("/");
 	};

@@ -4,14 +4,11 @@ import axios from "axios";
 export const loginUser = createAsyncThunk(
 	"user/loginUser",
 	async (userCredentials, remember) => {
-		console.log("user credential", userCredentials);
 		const request = await axios.post(
 			"http://localhost:3001/api/v1/user/login",
 			userCredentials
 		);
 		const response = await request.data;
-		console.log(response);
-		console.log("remember", remember);
 
 		return response;
 	}
@@ -34,7 +31,6 @@ const userSlice = createSlice({
 			.addCase(loginUser.fulfilled, (state, action) => {
 				state.loading = false;
 				state.user = action.payload;
-				// console.log("action payload", action.payload.body.token);
 				localStorage.setItem("token", action.payload.body.token);
 				state.error = null;
 			})

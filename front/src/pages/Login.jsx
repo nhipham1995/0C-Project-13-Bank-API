@@ -23,16 +23,12 @@ const Login = () => {
 		dispatch(loginUser(userCredential, remember)).then((result) => {
 			if (result.payload) {
 				if (remember) {
-					console.log("localStorage");
 					localStorage.setItem("user", JSON.stringify(result));
 				} else {
-					console.log("sessionStorage");
-					// sessionStorage.setItem("user", JSON.stringify(result));
-					localStorage.setItem("user", JSON.stringify(result));
+					sessionStorage.setItem("user", JSON.stringify(result));
 				}
 				setEmail("");
 				setPassword("");
-				console.log("go to profile page");
 				navigate("/profile");
 			}
 		});
