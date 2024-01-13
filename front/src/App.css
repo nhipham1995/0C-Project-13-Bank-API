@@ -125,15 +125,22 @@ body {
 }
 
 .input-list {
-	display: flex;
-	justify-content: center;
-	gap: 15px;
+	/* display: flex;
+	justify-content: center; */
+	/* gap: 15px; */
+	margin: 15px;
 }
 .input-list .input-wrapper input {
 	color: gray;
 }
 
 @media (min-width: 920px) {
+	.input-list {
+		display: flex;
+		justify-content: center;
+		gap: 15px;
+		margin: 0;
+	}
 	.hero {
 		height: 400px;
 		background-position: 0% 33%;

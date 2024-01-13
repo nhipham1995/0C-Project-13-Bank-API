@@ -9,7 +9,6 @@ export const loginUser = createAsyncThunk(
 			userCredentials
 		);
 		const response = await request.data;
-
 		return response;
 	}
 );
