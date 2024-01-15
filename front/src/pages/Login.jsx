@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../Store/UserSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
 	const [email, setEmail] = useState("");
@@ -47,10 +47,9 @@ const Login = () => {
 					<h1 className="sr-only">Argent Bank</h1>
 				</a>
 				<div>
-					<a className="main-nav-item" href="./sign-in.html">
-						<i className="fa fa-user-circle"></i>
+					<Link to="/login" className="main-nav-item">
 						Sign In
-					</a>
+					</Link>
 				</div>
 			</nav>
 			<main className="main bg-dark">
