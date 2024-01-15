@@ -5,7 +5,7 @@ export const updateProfile = createAsyncThunk(
 	"profile/updateProfile",
 	async (infos) => {
 		const token =
-			localStorage.getItem("token") || sessionStorage.getItem("token");
+			localStorage.getItem("user") || sessionStorage.getItem("user");
 
 		const request = await axios
 			.put("http://localhost:3001/api/v1/user/profile", infos, {
@@ -22,7 +22,7 @@ export const updateProfile = createAsyncThunk(
 
 export const userProfile = createAsyncThunk("profile/takeProfile", async () => {
 	const token =
-		localStorage.getItem("token") || sessionStorage.getItem("token");
+		localStorage.getItem("user") || sessionStorage.getItem("user");
 
 	const config = {
 		headers: {

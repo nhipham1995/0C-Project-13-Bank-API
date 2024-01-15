@@ -30,7 +30,6 @@ const userSlice = createSlice({
 			.addCase(loginUser.fulfilled, (state, action) => {
 				state.loading = false;
 				state.user = action.payload;
-				localStorage.setItem("token", action.payload.body.token);
 				state.error = null;
 			})
 			.addCase(loginUser.rejected, (state, action) => {

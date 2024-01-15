@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { updateProfile, userProfile } from "../Store/ProfileSlice";
-// import store from "../Store";
 
 const Profil = () => {
 	const { loading, error } = useSelector((state) => state.profile);
@@ -35,10 +34,9 @@ const Profil = () => {
 		});
 	}, [dispatch, navigate]);
 
-	const handleLogoutEvent = async () => {
-		await localStorage.removeItem("user");
-		await sessionStorage.removeItem("user");
-		await localStorage.removeItem("token");
+	const handleLogoutEvent = () => {
+		localStorage.removeItem("user");
+		sessionStorage.removeItem("user");
 		navigate("/");
 	};
 

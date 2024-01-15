@@ -23,10 +23,9 @@ const Login = () => {
 		dispatch(loginUser(userCredential, remember)).then((result) => {
 			if (result.payload) {
 				if (remember) {
-					console.log("remeberrrrrrr");
-					localStorage.setItem("user", JSON.stringify(result));
+					localStorage.setItem("user", result.payload.body.token);
 				} else {
-					sessionStorage.setItem("user", JSON.stringify(result));
+					sessionStorage.setItem("user", result.payload.body.token);
 				}
 				setEmail("");
 				setPassword("");
