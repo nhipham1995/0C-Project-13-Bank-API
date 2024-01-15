@@ -67,6 +67,37 @@ paths:
                 "500":
                     description: Internal Server Error
 
+    /transaction/item/{transactionId}:
+        get:
+            security:
+                - Bearer: []
+            tags:
+                - Transaction Module
+            summary: Transaction Information by ID
+            description: API for Transaction
+            parameters:
+                - in: header
+                  name: Authorization
+                  description: Attach Bearer JWT token
+                  required: true
+                  type: string
+                - in: path
+                  name: transactionId
+                  description: The unique identifier of transaction.
+                  required: true
+                  type: string
+            produces:
+                - application/json
+            responses:
+                "200":
+                    description: Transactions Fetch By Bank Successfully
+                    schema:
+                        $ref: "#/definitions/TransactionItem"
+                "400":
+                    description: Invalid Fields
+                "500":
+                    description: Internal Server Error
+
     /transaction/bank/{transactionInfosId}:
         get:
             security:
@@ -112,9 +143,15 @@ paths:
                   type: string
                 - in: path
                   name: transactionInfosId
-                  description: An object of transaction supplementary information.
+                  description: Transaction supplementary information ID.
                   required: true
                   type: string
+                - in: body
+                  name: updated info
+                  description: An object of transaction supplementary information.
+                  required: true
+                  schema:
+                      $ref: "#/definitions/TransactionSupplementaryInfos"
 
             produces:
                 - application/json

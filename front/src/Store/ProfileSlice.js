@@ -4,7 +4,8 @@ import axios from "axios";
 export const updateProfile = createAsyncThunk(
 	"profile/updateProfile",
 	async (infos) => {
-		const token = localStorage.getItem("token");
+		const token =
+			localStorage.getItem("token") || sessionStorage.getItem("token");
 
 		const request = await axios
 			.put("http://localhost:3001/api/v1/user/profile", infos, {
@@ -20,7 +21,8 @@ export const updateProfile = createAsyncThunk(
 );
 
 export const userProfile = createAsyncThunk("profile/takeProfile", async () => {
-	const token = localStorage.getItem("token");
+	const token =
+		localStorage.getItem("token") || sessionStorage.getItem("token");
 
 	const config = {
 		headers: {

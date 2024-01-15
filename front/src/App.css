@@ -209,6 +209,9 @@ body {
 	margin: 10px;
 	color: #e30202;
 }
+.form-cover {
+	min-height: 650px;
+}
 .sign-in-content {
 	box-sizing: border-box;
 	background-color: white;
